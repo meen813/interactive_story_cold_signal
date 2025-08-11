@@ -3,43 +3,36 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Oddyssey Tales — An Interactive Story</title>
-  <meta name="description" content="A lightweight choose-your-own-adventure you can host on GitHub Pages." />
+  <title>Cold Signal — SF Horror Mystery</title>
+  <meta name="description" content="A minimalist SF horror mystery you can host on GitHub Pages. Investigate, gather clues, and survive." />
   <style>
     :root{
-      --bg: #0b0f14; --fg:#e8f0f7; --muted:#89a1b3; --card:#10161f; --accent:#7cc0ff; --accent-2:#ffd166; --btn:#16202b; --btn-hover:#1e2a38;
+      --bg:#05080c; --fg:#e7eef6; --muted:#8aa0b1; --card:#0c1218; --accent:#87b7ff; --accent-2:#eab308; --btn:#111a22; --btn-hover:#162230;
     }
     :root.light{
       --bg:#f7fafc; --fg:#0b0f14; --muted:#52606d; --card:#ffffff; --accent:#2563eb; --accent-2:#f59e0b; --btn:#eef2f7; --btn-hover:#e5eaf1;
     }
     html,body{height:100%}
-    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji; display:grid; place-items:center}
-    .app{width:min(900px,95vw); padding:24px;}
-    .frame{background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:18px; padding:24px; box-shadow:0 10px 30px rgba(0,0,0,.25)}
-
-    header{display:flex; gap:12px; align-items:center; justify-content:space-between; margin-bottom:16px}
-    .title{font-weight:800; letter-spacing:.3px; display:flex; align-items:center; gap:10px}
-    .badge{background:var(--btn); color:var(--muted); padding:3px 8px; border-radius:999px; font-size:12px}
-    .toolbar{display:flex; gap:8px; align-items:center}
-    button{background:var(--btn); color:var(--fg); border:1px solid rgba(255,255,255,.08); padding:10px 14px; border-radius:10px; cursor:pointer; transition:background .15s ease, transform .05s ease}
+    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Noto Sans,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji;display:grid;place-items:center}
+    .app{width:min(900px,95vw);padding:24px}
+    .frame{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    header{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:16px}
+    .title{font-weight:800;letter-spacing:.3px;display:flex;align-items:center;gap:10px}
+    .badge{background:var(--btn);color:var(--muted);padding:3px 8px;border-radius:999px;font-size:12px}
+    .toolbar{display:flex;gap:8px;align-items:center}
+    button{background:var(--btn);color:var(--fg);border:1px solid rgba(255,255,255,.08);padding:10px 14px;border-radius:10px;cursor:pointer;transition:background .15s ease,transform .05s ease}
     button:hover{background:var(--btn-hover)}
     button:active{transform:translateY(1px)}
-
-    .screen{min-height:240px; padding:18px; border-radius:14px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)); border:1px dashed rgba(255,255,255,.08)}
-    .scene-title{font-weight:700; font-size:20px; margin:0 0 8px}
-    .scene-text{margin:0 0 16px; color:var(--fg)}
-
-    .choices{display:grid; gap:10px}
-    .choice{display:flex; justify-content:space-between; align-items:center}
+    .screen{min-height:240px;padding:18px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));border:1px dashed rgba(255,255,255,.08)}
+    .scene-title{font-weight:700;font-size:20px;margin:0 0 8px}
+    .scene-text{margin:0 0 16px;color:var(--fg)}
+    .choices{display:grid;gap:10px}
+    .choice{display:flex;justify-content:space-between;align-items:center}
     .choice small{color:var(--muted)}
-
-    .progress{height:8px; background:rgba(255,255,255,.08); border-radius:999px; overflow:hidden; margin:16px 0 6px}
-    .progress > div{height:100%; width:0; background:linear-gradient(90deg, var(--accent), var(--accent-2)); transition:width .3s ease}
-
-    .meta{display:flex; justify-content:space-between; color:var(--muted); font-size:12px}
-
-    .footer{margin-top:16px; display:flex; gap:10px; flex-wrap:wrap}
-
+    .progress{height:8px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden;margin:16px 0 6px}
+    .progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .3s ease}
+    .meta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
+    .footer{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
     .hidden{display:none}
     a{color:var(--accent)}
   </style>
@@ -50,7 +43,7 @@
       <header>
         <div class="title">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M3 12l9 4 9-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17l9 4 9-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Oddyssey Tales</span>
+          <span>Cold Signal</span>
           <span class="badge">v1.0</span>
         </div>
         <div class="toolbar">
@@ -79,134 +72,154 @@
         <button id="loadBtn">📂 Load</button>
       </div>
 
-      <p class="meta">Made with vanilla JS. Host this single file on GitHub Pages. Edit the <code>story</code> data below to write your own adventure.</p>
+      <p class="meta">SF Horror Mystery edition. Host this single file on GitHub Pages. Edit the <code>story</code> data below to write your own branches.</p>
     </div>
   </div>
 
   <script>
-    /**
-     * Minimal story engine: nodes keyed by id. Each node has {title, text, choices:[{label, to, if?, set?}], end?}
-     * You can add conditional branches with `if` (checks flags) and side effects with `set` (toggle flags or counters).
-     */
+    // ---- Story data: SF Horror Mystery ----
     const story = {
       start: {
-        title: "You wake to a blinking terminal",
-        text: "A rogue process is draining the city's power grid. You have one night to trace it. Do you jack into the net or scout the streets?",
+        title: "Docking at SEVEN‑IX",
+        text: "Your cutter latches to the silent research station SEVEN‑IX. A looping distress ping—the 'cold signal'—bleeds through comms. Where do you start?",
         choices: [
-          { label: "Jack into the net", to: "net_hub", set: { jackin: true } },
-          { label: "Scout the streets", to: "alley", set: { street: true } },
+          { label: "Operations (comms)", to: "ops" },
+          { label: "Medbay (specimens)", to: "med" },
         ],
       },
-      net_hub: {
-        title: "Neon Mesh",
-        text: "The network hums. Firewalls shimmer like heat. A forked path emerges: corporate mainframe or underground relay?",
+
+      ops: {
+        title: "Operations Deck",
+        text: "Dead consoles twitch. A carrier tone repeats every 13 seconds. Dust hangs like ash.",
         choices: [
-          { label: "Corporate mainframe", to: "corp", set: { cred:+1 } },
-          { label: "Underground relay", to: "relay", set: { rep:+1 } },
-          { label: "Back", to: "start" },
+          { label: "Play last crew log", to: "log", set: { clues: +1 } },
+          { label: "Trace the cold signal to Sublevel Cargo", to: "cargo_entry", set: { trace: true } },
+          { label: "Restore auxiliary power", to: "generator" },
+          { label: "Back to airlock", to: "start" },
         ],
       },
-      alley: {
-        title: "Rain-Slick Alley",
-        text: "A drone watches from above. Two leads: a hacker bar or a power substation near the docks.",
+
+      generator: {
+        title: "Auxiliary Junction",
+        text: "Manual breakers resist, then give. Emergency strips glow to life. Systems hum—something hums back.",
         choices: [
-          { label: "Hacker bar", to: "bar", set: { rumor:true } },
-          { label: "Power substation", to: "dock", set: { tools:true } },
-          { label: "Back", to: "start" },
+          { label: "Return to Operations", to: "ops", set: { aux: true } },
         ],
       },
-      corp: {
-        title: "Glass and Steel",
-        text: "Inside the mainframe, a sentinel scans for intruders. You can spoof credentials or brute-force a port.",
+
+      log: {
+        title: "Last Log Playback",
+        text: "Voices argue over 'Specimen 13.' —‘It reacts to infrared. Keep the UV on.’ The recording cuts with scraping metal.",
         choices: [
-          { label: "Spoof credentials", to: "spoof", if: s => (s.cred||0) >= 1 },
-          { label: "Brute-force", to: "brute" },
-          { label: "Retreat", to: "net_hub" },
+          { label: "Head to Medbay", to: "med" },
+          { label: "Check Crew Quarters for a keycard", to: "quarters" },
+          { label: "Back to Operations", to: "ops" },
         ],
       },
-      relay: {
-        title: "Hidden Relay",
-        text: "An activist offers a backdoor if you'll expose corporate logs later.",
+
+      quarters: {
+        title: "Crew Quarters",
+        text: "Photos taped over vents. A locker blinks low‑power. The nameplate reads: K. Nasiri.",
         choices: [
-          { label: "Accept backdoor (gain key)", to: "key", set: { key:true } },
-          { label: "Decline", to: "net_hub" },
+          { label: "Open locker (find keycard)", to: "quarters_found", set: { key: true, clues: +1 } },
+          { label: "Return to corridor", to: "start" },
         ],
       },
-      bar: {
-        title: "Blue Static Bar",
-        text: "Rumors swirl: the rogue process originated near the docks at midnight.",
+
+      quarters_found: {
+        title: "Keycard Acquired",
+        text: "A Level‑C cargo keycard and a handwritten note: 'If it hums, do not breathe.'",
         choices: [
-          { label: "Head to docks", to: "dock" },
-          { label: "Back to alley", to: "alley" },
+          { label: "Proceed to Sublevel Cargo", to: "cargo_entry" },
+          { label: "Back to Operations", to: "ops" },
         ],
       },
-      dock: {
-        title: "Substation D-12",
-        text: "A maintenance hatch is locked. You notice an unsecured junction box.",
+
+      med: {
+        title: "Medbay",
+        text: "Cryopod 13 is empty. Frost prints end beneath a vent. Cabinets yaw open.",
         choices: [
-          { label: "Bypass via junction", to: "junction" },
-          { label: "Pick the lock", to: "lock", if: s => s.tools },
-          { label: "Call the activist (needs key)", to: "unlock", if: s => s.key },
+          { label: "Search supplies (find UV scanner)", to: "med_uv", set: { uv: true, clues: +1 } },
+          { label: "Run autopsy console", to: "autopsy", if: s => s.aux },
+          { label: "Follow sticky prints toward Cargo", to: "cargo_entry", if: s => s.uv },
+          { label: "Back to airlock", to: "start" },
         ],
       },
-      spoof: {
-        title: "Ghost ID",
-        text: "You slip past the sentinel. Log traces lead to the docks.",
+
+      med_uv: {
+        title: "UV Scanner Online",
+        text: "Under ultraviolet, filament trails blink like constellations leading downward.",
         choices: [
-          { label: "Go to docks", to: "dock" },
+          { label: "Go to Cargo", to: "cargo_entry" },
+          { label: "Check autopsy console (needs power)", to: "autopsy", if: s => s.aux },
+          { label: "Back to Medbay", to: "med" },
         ],
       },
-      brute: {
-        title: "Alarms Blare",
-        text: "Security boots you. But not before you spot a reference: D-12.",
+
+      autopsy: {
+        title: "Autopsy Records",
+        text: "Report fragments: 'Specimen avoids UV, resonates to 13Hz carrier, breaches soft tissue via aerosols.'",
         choices: [
-          { label: "Docks it is", to: "dock", set: { heat:+1 } },
+          { label: "Proceed to Cargo", to: "cargo_entry", set: { clues: +1 } },
+          { label: "Back to Medbay", to: "med" },
         ],
       },
-      key: {
-        title: "Cipher Key Gained",
-        text: "You receive a one-use decryption key.",
+
+      cargo_entry: {
+        title: "Sublevel Cargo Bulkhead",
+        text: "A sealed Level‑C door. Air tastes metallic. A faint hum counts seconds.",
         choices: [
-          { label: "Back to net hub", to: "net_hub" },
+          { label: "Swipe keycard", to: "cargo_hall", if: s => s.key },
+          { label: "Pry service hatch (risky)", to: "hatch", set: { fear: +1 } },
+          { label: "UV sweep the vents", to: "hatch", if: s => s.uv },
+          { label: "Back to Operations", to: "ops" },
         ],
       },
-      junction: {
-        title: "Junction Box",
-        text: "You trace a looping script siphoning power. It points deeper, into a sealed chamber.",
+
+      hatch: {
+        title: "Maintenance Crawl",
+        text: "Pipes sweat. Something retracts just ahead, clicking like teeth. The hum grows warmer.",
         choices: [
-          { label: "Enter sealed chamber", to: "boss", if: s => s.key || s.tools },
-          { label: "Look around more", to: "dock" },
+          { label: "Push through to containment hall", to: "cargo_hall" },
+          { label: "Retreat", to: "cargo_entry" },
         ],
       },
-      lock: {
-        title: "Picked Clean",
-        text: "The hatch opens. Inside: a humming core and a timer accelerating.",
+
+      cargo_hall: {
+        title: "Containment Hall",
+        text: "Cracked viewport. Inside, a wet silhouette studies its own reflection—then turns to the hum.",
         choices: [
-          { label: "Confront the core", to: "boss" },
+          { label: "Stage a quarantine trap (needs power + key)", to: "boss", if: s => s.aux && s.key },
+          { label: "Record evidence and broadcast (needs 3 clues)", to: "boss", if: s => (s.clues||0) >= 3 },
+          { label: "Use UV to drive it toward the airlock", to: "boss", if: s => s.uv },
+          { label: "Run", to: "end_lost" },
         ],
       },
-      unlock: {
-        title: "Remote Unlock",
-        text: "The activist's key opens the hatch. The timer keeps accelerating.",
-        choices: [
-          { label: "Confront the core", to: "boss" },
-        ],
-      },
+
       boss: {
-        title: "The Rogue Core",
-        text: "You can reroute power to spare the city (but expose your allies) or crash the core (blackout, but save your crew).",
+        title: "Specimen 13 Stirs",
+        text: "It sways to the carrier tone. Veins glitter under your UV. Your visor fogs from your own breath.",
         choices: [
-          { label: "Reroute power (ally exposed)", to: "end_reroute", set: { ending:"Reroute" } },
-          { label: "Crash the core (blackout)", to: "end_crash", set: { ending:"Crash" } },
+          { label: "Seal containment and flood inert gas", to: "end_quarantine", if: s => s.aux && s.key, set: { ending: "Quarantine" } },
+          { label: "Drive it into the docking airlock and vent", to: "end_vent", if: s => s.uv, set: { ending: "Vented" } },
+          { label: "Broadcast proof to public channels", to: "end_broadcast", if: s => (s.clues||0) >= 3, set: { ending: "Broadcast" } },
         ],
       },
-      end_reroute: { end:true, title: "City Sleeps, Eyes Open",
-        text: "Lights stay on. Headlines name your activist friend. You live to fight another day—alone.", choices: [] },
-      end_crash: { end:true, title: "Night of Stars",
-        text: "The city goes dark. In the silence, sirens bloom. Your crew slips away. Tomorrow will be harsher—and freer.", choices: [] },
+
+      end_quarantine: { end:true, title: "Containment Holds",
+        text: "Gas hisses. The silhouette stills against glass. Your report is clean; your hands are not.", choices: [] },
+
+      end_vent: { end:true, title: "Cold Stars, Colder Ship",
+        text: "You vent the bay. The hum fades into vacuum. Something hums back in your teeth.", choices: [] },
+
+      end_broadcast: { end:true, title: "Everyone Hears the Hum",
+        text: "The truth spreads before the quarantine teams arrive. Your cough starts on the seventh word.", choices: [] },
+
+      end_lost: { end:true, title: "Signal Continues",
+        text: "You flee through blue corridors. Behind you, the cold signal keeps perfect time.", choices: [] },
     };
 
-    // --- Engine state ---
+    // --- Engine state (unchanged) ---
     const elTitle = document.getElementById('sceneTitle');
     const elText = document.getElementById('sceneText');
     const elChoices = document.getElementById('choices');
@@ -215,146 +228,55 @@
     const elPathMeta = document.getElementById('pathMeta');
     const elStepMeta = document.getElementById('stepMeta');
 
-    const state = {
-      node: 'start',
-      flags: {},
-      history: ['start'],
-      future: [],
-    };
+    const state = { node:'start', flags:{}, history:['start'], future:[] };
 
-    // Theme
     const themeBtn = document.getElementById('themeBtn');
-    function applyTheme(){
-      const light = localStorage.getItem('theme') === 'light';
-      document.documentElement.classList.toggle('light', light);
-    }
-    themeBtn.addEventListener('click', ()=>{
-      const cur = localStorage.getItem('theme') === 'light' ? 'dark':'light';
-      localStorage.setItem('theme', cur); applyTheme();
-    });
+    function applyTheme(){ const light = localStorage.getItem('theme') === 'light'; document.documentElement.classList.toggle('light', light); }
+    themeBtn.addEventListener('click', ()=>{ const cur = localStorage.getItem('theme') === 'light' ? 'dark':'light'; localStorage.setItem('theme', cur); applyTheme(); });
     applyTheme();
 
-    function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+    function clamp(n,min,max){ return Math.max(min, Math.min(max, n)); }
 
-    function setNode(id){
-      state.node = id; state.future = [];
-      if(!state.history.length || state.history[state.history.length-1] !== id){
-        state.history.push(id);
-      }
-      render(); saveToURL();
-    }
+    function setNode(id){ state.node=id; state.future=[]; if(!state.history.length||state.history[state.history.length-1]!==id){ state.history.push(id);} render(); saveToURL(); }
 
-    function applySet(set){
-      if(!set) return; const s = state.flags;
-      for(const [k,v] of Object.entries(set)){
-        if(typeof v === 'number') s[k] = (s[k]||0) + v; else s[k] = v;
-      }
-    }
+    function applySet(set){ if(!set) return; const s=state.flags; for(const [k,v] of Object.entries(set)){ if(typeof v==='number') s[k]=(s[k]||0)+v; else s[k]=v; } }
 
-    function visibleChoices(node){
-      return (node.choices||[]).filter(c => !c.if || c.if(state.flags));
-    }
+    function visibleChoices(node){ return (node.choices||[]).filter(c=>!c.if||c.if(state.flags)); }
 
     function render(){
       const node = story[state.node];
       elTitle.textContent = node.title || '';
       elText.textContent = node.text || '';
       elChoices.innerHTML='';
-
-      const totalSteps = Object.keys(story).length; // rough denominator
-      const pct = clamp((state.history.length / totalSteps) * 100, 5, 100);
+      const totalSteps = Object.keys(story).length;
+      const pct = clamp((state.history.length/totalSteps)*100,5,100);
       elBar.style.width = pct + '%';
       elPathMeta.textContent = 'Path: ' + state.history.join(' → ');
       elStepMeta.textContent = state.history.length + ' steps';
-
-      if(node.end){
-        elChoices.classList.add('hidden');
-        elEnd.classList.remove('hidden');
-        return;
-      } else { elChoices.classList.remove('hidden'); elEnd.classList.add('hidden'); }
-
+      if(node.end){ elChoices.classList.add('hidden'); elEnd.classList.remove('hidden'); return; } else { elChoices.classList.remove('hidden'); elEnd.classList.add('hidden'); }
       for(const choice of visibleChoices(node)){
-        const btn = document.createElement('button');
-        btn.innerHTML = `<span>${choice.label}</span>`;
-        btn.addEventListener('click', ()=>{ applySet(choice.set); setNode(choice.to); });
-        const row = document.createElement('div'); row.className='choice';
-        const hint = document.createElement('small');
-        hint.textContent = choice.if ? 'requires condition' : '';
-        row.appendChild(btn); row.appendChild(hint);
-        elChoices.appendChild(row);
+        const btn=document.createElement('button'); btn.innerHTML=`<span>${choice.label}</span>`; btn.addEventListener('click',()=>{ applySet(choice.set); setNode(choice.to); });
+        const row=document.createElement('div'); row.className='choice'; const hint=document.createElement('small'); hint.textContent = choice.if ? 'requires condition' : ''; row.appendChild(btn); row.appendChild(hint); elChoices.appendChild(row);
       }
     }
 
-    // History navigation
-    document.getElementById('backBtn').addEventListener('click', ()=>{
-      if(state.history.length > 1){
-        const cur = state.history.pop(); state.future.push(cur);
-        state.node = state.history[state.history.length-1];
-        render(); saveToURL();
-      }
-    });
-    document.getElementById('forwardBtn').addEventListener('click', ()=>{
-      if(state.future.length){
-        const next = state.future.pop(); state.history.push(next); state.node = next; render(); saveToURL();
-      }
-    });
+    document.getElementById('backBtn').addEventListener('click',()=>{ if(state.history.length>1){ const cur=state.history.pop(); state.future.push(cur); state.node=state.history[state.history.length-1]; render(); saveToURL(); }});
+    document.getElementById('forwardBtn').addEventListener('click',()=>{ if(state.future.length){ const next=state.future.pop(); state.history.push(next); state.node=next; render(); saveToURL(); }});
 
-    // Save/Load
-    function serialize(){
-      return JSON.stringify({ node:state.node, flags:state.flags, history:state.history, future:state.future });
-    }
-    function deserialize(s){
-      try{ const obj = JSON.parse(s); Object.assign(state, obj); render(); }
-      catch{ alert('Invalid save data'); }
-    }
-    document.getElementById('saveBtn').addEventListener('click', ()=>{
-      localStorage.setItem('oddyssey_save', serialize());
-      alert('Saved!');
-    });
-    document.getElementById('loadBtn').addEventListener('click', ()=>{
-      const data = localStorage.getItem('oddyssey_save');
-      if(data) deserialize(data); else alert('No save data found.');
-    });
+    function serialize(){ return JSON.stringify({ node:state.node, flags:state.flags, history:state.history, future:state.future }); }
+    function deserialize(s){ try{ const obj=JSON.parse(s); Object.assign(state,obj); render(); } catch{ alert('Invalid save data'); } }
+    document.getElementById('saveBtn').addEventListener('click',()=>{ localStorage.setItem('coldsignal_save', serialize()); alert('Saved!'); });
+    document.getElementById('loadBtn').addEventListener('click',()=>{ const data=localStorage.getItem('coldsignal_save'); if(data) deserialize(data); else alert('No save data found.'); });
 
-    // Restart
-    document.getElementById('restartBtn').addEventListener('click', ()=>{
-      state.node='start'; state.flags={}; state.history=['start']; state.future=[]; render(); saveToURL();
-    });
+    document.getElementById('restartBtn').addEventListener('click',()=>{ state.node='start'; state.flags={}; state.history=['start']; state.future=[]; render(); saveToURL(); });
+    document.getElementById('tryAgainBtn').addEventListener('click',()=>{ state.node='start'; state.history=['start']; state.future=[]; render(); saveToURL(); });
 
-    // Try again on end
-    document.getElementById('tryAgainBtn').addEventListener('click', ()=>{
-      state.node='start'; state.history=['start']; state.future=[]; render(); saveToURL();
-    });
+    function saveToURL(){ const encoded=btoa(unescape(encodeURIComponent(serialize()))); const url=new URL(location.href); url.hash=encoded; history.replaceState(null,'',url); document.getElementById('exportLink').href=url.toString(); }
+    function loadFromURL(){ if(location.hash && location.hash.length>1){ const data=decodeURIComponent(escape(atob(location.hash.slice(1)))); deserialize(data); } else { render(); saveToURL(); } }
 
-    // Shareable URL
-    function saveToURL(){
-      const encoded = btoa(unescape(encodeURIComponent(serialize())));
-      const url = new URL(location.href); url.hash = encoded; history.replaceState(null,'',url);
-      document.getElementById('exportLink').href = url.toString();
-    }
-    function loadFromURL(){
-      if(location.hash && location.hash.length>1){
-        const data = decodeURIComponent(escape(atob(location.hash.slice(1))));
-        deserialize(data);
-      } else { render(); saveToURL(); }
-    }
+    window.addEventListener('keydown',(e)=>{ const keys=['1','2','3','4','5','6','7','8','9']; if(keys.includes(e.key)){ const i=Number(e.key)-1; const btns=elChoices.querySelectorAll('button'); if(btns[i]) btns[i].click(); } if(e.key==='ArrowLeft') document.getElementById('backBtn').click(); if(e.key==='ArrowRight') document.getElementById('forwardBtn').click(); });
 
-    // Keyboard shortcuts
-    window.addEventListener('keydown', (e)=>{
-      const keys = ['1','2','3','4','5','6','7','8','9'];
-      if(keys.includes(e.key)){
-        const i = Number(e.key)-1; const btns = elChoices.querySelectorAll('button');
-        if(btns[i]) btns[i].click();
-      }
-      if(e.key==='ArrowLeft') document.getElementById('backBtn').click();
-      if(e.key==='ArrowRight') document.getElementById('forwardBtn').click();
-    });
-
-    // Share button copies URL
-    document.getElementById('shareBtn').addEventListener('click', async ()=>{
-      try{ await navigator.clipboard.writeText(location.href); alert('URL copied!'); }
-      catch{ alert('Copy failed — use the Export link at the end.'); }
-    });
+    document.getElementById('shareBtn').addEventListener('click',async()=>{ try{ await navigator.clipboard.writeText(location.href); alert('URL copied!'); } catch{ alert('Copy failed — use the Export link at the end.'); } });
 
     loadFromURL();
   </script>
